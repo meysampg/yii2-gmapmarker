@@ -1,0 +1,21 @@
+{
+    "name": "meysampg/yii2-gmapmarker",
+    "description": "A simple google map marker widget for Yii2",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension", "google", "google-map"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Meysam P.G.",
+            "email": "p.g.meysam@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "meysampg\\gmap\\": ""
+        }
+    }
+}
