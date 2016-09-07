@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Yii2-gmapmarker by meysampg</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Yii2-gmapmarker</h1>
+        <p class="header">Google map marker extension for Yii2</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/meysampg/yii2-gmapmarker/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/meysampg/yii2-gmapmarker/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/meysampg/yii2-gmapmarker">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/meysampg">meysampg</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a id="yii2-google-map-marker" class="anchor" href="#yii2-google-map-marker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Yii2 Google Map Marker</h1>
+
+<p>A simple google map marker widget for Yii2</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>The preferred way to install this extension is through <a href="http://getcomposer.org/download/">composer</a>.</p>
+
+<p>Either run</p>
+
+<pre><code>composer require meysampg/yii2-gmapmarker "*"
+</code></pre>
+
+<p>or add</p>
+
+<pre><code>"meysampg/yii2-gmapmarker": "*"
+</code></pre>
+
+<p>to the require section of your <code>composer.json</code> file.</p>
+
+<h2>
+<a id="config" class="anchor" href="#config" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Config</h2>
+
+<p>Easily you can set the asset needed values with as mentioned on <a href="http://www.yiiframework.com/doc-2.0/guide-structure-assets.html#customizing-asset-bundles">http://www.yiiframework.com/doc-2.0/guide-structure-assets.html#customizing-asset-bundles</a>. 
+For example You can use this code on you <code>web.config</code>:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">return</span> [</span>
+<span class="pl-s1">    <span class="pl-c">// Some codes are here :)</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>components<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> [</span>
+<span class="pl-s1">        <span class="pl-c">// And also maybe here ;)</span></span>
+<span class="pl-s1">        <span class="pl-s"><span class="pl-pds">'</span>assetManager<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> [</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">'</span>bundles<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> [</span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>meysampg\gmap\GMapAsset<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> [</span>
+<span class="pl-s1">                    <span class="pl-s"><span class="pl-pds">'</span>key<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>YOU_API_KEY<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">                    <span class="pl-s"><span class="pl-pds">'</span>language<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>en<span class="pl-pds">'</span></span></span>
+<span class="pl-s1">                ],</span>
+<span class="pl-s1">            ],</span>
+<span class="pl-s1">        ],</span>
+<span class="pl-s1">    ],</span>
+<span class="pl-s1">];</span></pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Once the extension is installed, simply use it in your code by:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">&lt;</span>?<span class="pl-k">=</span> <span class="pl-c1">GMapMarker</span><span class="pl-k">::</span>widget([</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>width<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>98<span class="pl-pds">'</span></span>, <span class="pl-c">// Using pure number for 98% of width.</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>height<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>400px<span class="pl-pds">'</span></span>, <span class="pl-c">// Or use number with unit (In this case 400px for height).</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>marks<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> [<span class="pl-c1">35.6892</span>, <span class="pl-c1">51.3890</span>],</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>zoom<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">5</span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>disableDefaultUI<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">true</span></span>
+<span class="pl-s1">]); </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span></pre></div>
+
+<p>for single marker or use for multiple markers by:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">&lt;</span>?<span class="pl-k">=</span> <span class="pl-c1">GMapMarker</span><span class="pl-k">::</span>widget([</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>width<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>600px<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>height<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>400px<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>marks<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> [</span>
+<span class="pl-s1">        [<span class="pl-c1">35.6892</span>, <span class="pl-c1">51.3890</span>],</span>
+<span class="pl-s1">        [<span class="pl-c1">31.3183</span>, <span class="pl-c1">48.6706</span>],</span>
+<span class="pl-s1">        [<span class="pl-c1">29.4850</span>, <span class="pl-c1">57.6439</span>]</span>
+<span class="pl-s1">    ],</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>zoom<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">5</span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>disableDefaultUI<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">true</span></span>
+<span class="pl-s1">]); </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span></pre></div>
+
+<h2>
+<a id="screenshot" class="anchor" href="#screenshot" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Screenshot</h2>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1416085/16899844/fe3355c8-4c26-11e6-89c6-0f98294b6973.png" alt="Yii2 Google Map Marker Extension"></p>
+
+<h2>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ToDo</h2>
+
+<ul>
+<li>Add support of label to makers.</li>
+<li>Add ability of showing custom icon instead of default marker.</li>
+<li>[Need more? Open an issue!]</li>
+</ul>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
